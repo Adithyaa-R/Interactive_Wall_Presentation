@@ -7,6 +7,9 @@ String SVal;
 
 String[] imgName = {"1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg"};
 PImage[] img = new PImage[imgName.length];  // Declare variable "a" of type PImage
+int[] SensV = new int[8];
+int[] SensT = {800,800,500,500,500,500,500,500};//threshold levels for detecting touch.
+
 //PImage dimg;
 int CurrImg = 0;
 void setup() 
@@ -26,13 +29,15 @@ void setup()
 void draw() 
 {
   // Displays the image at its actual size at point (0,0)
-  background(0);
-  //println(CurrImg);
-  image(img[CurrImg], 0, 0);
   if ( myPort.available() > 0) // If data is available,
   {  
     splitter(getSerial());
   }
+  checkSensV();
+  background(0);
+  //println(CurrImg);
+  image(img[CurrImg], 0, 0);
+  
 }
 
 void keyPressed()
@@ -43,15 +48,15 @@ void keyPressed()
 void splitter(String sval2)
 {
   sval2 = trim(sval2);
-  print(sval2 + " ");
+  //print(sval2 + " ");
   String[] spt = split(sval2, '\t');
   //print(spt.length + " ");
   for (int i = 0; i < spt.length; i++)
   {
-    print(spt[i]);
-    print(" ");
+    //print(spt[i]);
+    //print(" ");
   }
-  println(" XXX");
+  //println(" XXX");
 }
 
 String getSerial()
@@ -60,6 +65,39 @@ String getSerial()
   return SVal;
 }
 
-void PrSerial()
+void checkSensV()
 {
+  for (int i = 0; i < SensV.length; i++)
+  {
+    switch()
+    {
+      case 2:
+      CurrImg = ;
+      break;
+      
+      case 3:
+      CurrImg = ;
+      break;
+      
+      case 4:
+      CurrImg = ;
+      break;
+      
+      case 5:
+      CurrImg = ;
+      break;
+      
+      case 6:
+      CurrImg = ;
+      break;
+      
+      case 7:
+      CurrImg = ;
+      break;
+      
+      default:
+      //do nothing
+      break;
+    }
+  }
 }
