@@ -13,7 +13,7 @@ int CurrImg = 0;//very important, the currently displayed slide.
 
 //user variables
 int slideSpd = 3000;//value of the delay between changing slides
-int thresh = 24;//sensor threshold. baseline values are 1 - 19, central values spike above 45-ish, and can go upto 120~ due to crosstalks.
+int thresh = 30;//sensor threshold. baseline values are 1 - 19, central values spike above 45-ish, and can go upto 120~ due to crosstalks.
 
 
 void setup() 
@@ -73,7 +73,7 @@ void keyPressed()
     //print("press");
     lastRun = millis();
   }
-  if ((key == 20)&&(millis()>lastRun+slideSpd))//press <space> to Restart
+  if ((key == 122)&&(millis()>lastRun+slideSpd))//press <space> to Restart
   //if (key == 122)//press 'z' to Restart
   {
     CurrImg = 0;
