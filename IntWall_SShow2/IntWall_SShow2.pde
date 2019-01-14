@@ -8,15 +8,18 @@ String[] imgName = {"1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png
 PImage[] img = new PImage[imgName.length];  // Declare variable "a" of type PImage
 int[] SensV = new int[9];
 boolean[] Proceed = {false, true, false, true, true, true, false, true, false, false, false, true, false, true};//if the value is False then display for a few seconds before going to the next one
-int slideSpd = 3000;//value of the delay between changing slides
-int thresh = 24;//sensor threshold. baseline values are 1 - 19, central values spike above 45-ish, and can go upto 120~ due to crosstalks.
 long lastRun = 0;//used for slide timing AND debouncing keys.
 int CurrImg = 0;//very important, the currently displayed slide.
 
+//user variables
+int slideSpd = 3000;//value of the delay between changing slides
+int thresh = 24;//sensor threshold. baseline values are 1 - 19, central values spike above 45-ish, and can go upto 120~ due to crosstalks.
+
+
 void setup() 
 {
-  size(800, 450);
-  //fullScreen();
+  //size(800, 450);
+  fullScreen();
   String portName = Serial.list()[0];//serial 
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil(linefeed);
