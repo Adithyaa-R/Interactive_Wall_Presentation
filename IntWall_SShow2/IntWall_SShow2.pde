@@ -20,7 +20,6 @@ void setup()
 {
   //size(800, 450);
   fullScreen();
-  String portName = Serial.list()[0];//serial 
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil(linefeed);
 
@@ -43,12 +42,6 @@ void draw()
   CurrImg = constrain(CurrImg, 0, imgName.length-1);
   image(img[CurrImg], 0, 0, width, height);
 
-  //if (!Proceed[CurrImg])
-  //{
-  //delay(slideSpd); //delay statements are abysmal
-  //Proceed[CurrImg] = true;
-  //CurrImg += 1;
-  //}
   //println(CurrImg);
   SShow();
 }
